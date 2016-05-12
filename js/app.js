@@ -1,3 +1,4 @@
+"use strict";
 // Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
@@ -24,13 +25,54 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
+var startX = 202;
+var startY = 404;
 
+var Player = function() {
+    this.sprite = 'images/char-horn-girl.png';
+    this.x = startX;
+    this.y = startY;
+};
+
+Player.prototype.update = function() {};
+
+Player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+Player.prototype.handleInput = function(pressedKey) {
+    switch (pressedKey) {
+        case 'up':
+            if (this.y > 64) {
+                this.y -= 85;
+            } else {
+              this.x = startX;
+              this.y = startY;
+            }
+            break;
+        case 'down':
+            if (this.y < 404) {
+                this.y += 85;
+            }
+            break;
+        case 'left':
+            if (this.x > 0) {
+                this.x -= 101;
+            }
+            break;
+        case 'right':
+            if (this.x < 404) {
+                this.x += 101;
+            }
+            break;
+    }
+    player.render();
+};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-
-
+var allEnemies = [];
+var player = new Player();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
