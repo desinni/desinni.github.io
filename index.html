@@ -4,12 +4,40 @@
     <meta charset="UTF-8">
     <title>Effective JavaScript: Frogger</title>
     <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Frogger: The Game</h1>
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-sm-8 game-board">
+          <script src="js/resources.js"></script>
+          <script src="js/app.js"></script>
+          <script src="js/engine.js"></script>
+        </div>
+
+        <div class="col-sm-4 scores">
+          <h1>Frogger: The Game</h1>
+          <div class="col-sm-6 text-right">High Score: </div>
+          <div id="high-score" class="col-sm-6 text-left"></div>
+          <div class="col-sm-6 text-right">Score: </div>
+          <div id="score" class="col-sm-6 text-left"></div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- <h1>Frogger: The Game</h1>
+    <div>Score: </div>
+    <div id="score"></div>
+
+
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/engine.js"></script>
+    <script src="js/engine.js"></script> -->
 </body>
 </html>
