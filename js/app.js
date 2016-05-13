@@ -39,22 +39,22 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Enemy.prototype.randomRow = function () {
+Enemy.prototype.randomRow = function() {
     var rndRow = Math.floor((Math.random() * 4) + 1);
     var row;
     switch (rndRow) {
-      case 1:
-        row = 60;
-        break;
-      case 2:
-        row = 140;
-        break;
-      case 3:
-        row = 220;
-        break;
-      case 4:
-        row = 300;
-        break;
+        case 1:
+            row = 60;
+            break;
+        case 2:
+            row = 140;
+            break;
+        case 3:
+            row = 220;
+            break;
+        case 4:
+            row = 300;
+            break;
     }
     return row;
 };
@@ -119,10 +119,10 @@ Player.prototype.restart = function() {
     this.y = 489;
 };
 
-Player.prototype.showScores = function () {
+Player.prototype.showScores = function() {
     document.getElementById('score').innerHTML = player.score;
     if (player.score > player.highScore) {
-      player.highScore = player.score;
+        player.highScore = player.score;
     }
     document.getElementById('high-score').innerHTML = player.highScore;
     document.getElementById('death-score').innerHTML = player.deathScore;
