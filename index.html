@@ -3,41 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>Effective JavaScript: Frogger</title>
-    <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lobster|Khula:300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
     <div class="container">
 
       <div class="row">
 
-        <div class="col-sm-8 game-board">
-          <script src="js/resources.js"></script>
-          <script src="js/app.js"></script>
-          <script src="js/engine.js"></script>
-        </div>
+        <div id="game-board" class="col-sm-6 text-right"></div>
 
-        <div class="col-sm-4 scores">
+        <div class="col-sm-6 scores">
           <h1>Frogger: The Game</h1>
-          <div class="col-sm-6 text-right">High Score: </div>
-          <div id="high-score" class="col-sm-6 text-left"></div>
-          <div class="col-sm-6 text-right">Score: </div>
-          <div id="score" class="col-sm-6 text-left"></div>
+
+            <div class="col-sm-6 text-right scores-heading">High Score: </div>
+            <div id="high-score" class="col-sm-6 text-left"></div>
+
+            <div class="col-sm-6 text-right">Death Score: </div>
+            <div id="death-score" class="col-sm-6 text-left"></div>
+
+            <div class="col-sm-6 text-right">Score: </div>
+            <div id="score" class="col-sm-6 text-left"></div>
+
+          <div class="col-sm-8 col-sm-offset-2 rules">
+            <h2>Rules:</h2>
+            <p class="rules-text">Oh no! These bugs are so dangerous, but this kid wants to
+              reach the sea so much...</p>
+            <p class="rules-text">Help this little girl reach the water! But be
+              really careful and don't let bugs bite.</p>
+            <p class="rules-text">Use arrow keys to move.</p>
+          </div>
+
         </div>
 
       </div>
 
     </div>
 
-
-    <!-- <h1>Frogger: The Game</h1>
-    <div>Score: </div>
-    <div id="score"></div>
-
-
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/engine.js"></script> -->
+    <script src="js/engine.js"></script>
+
 </body>
 </html>

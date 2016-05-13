@@ -26,6 +26,7 @@ Enemy.prototype.update = function(dt) {
             if (player.x < enemy.x + enemy.width && player.x + player.width > enemy.x && player.y < enemy.y + enemy.height && player.y + player.height > enemy.y) {
                 player.restart();
                 player.score = 0;
+                player.deathScore++;
             }
         })
         // You should multiply any movement by the dt parameter
@@ -52,14 +53,6 @@ Enemy.prototype.randomRow = function () {
         row = 220;
         break;
     }
-    // var row = 60;
-    // if (rnd === 2) {
-    //   row = 140;
-    // } else if (rnd === 3) {
-    //   row = 220;
-    // } else if (rnd === 4) {
-    //   row = 300;
-    // }
     return row;
 };
 
@@ -68,7 +61,7 @@ Enemy.prototype.randomRow = function () {
 // a handleInput() method.
 
 var Player = function() {
-    this.sprite = 'images/char-horn-girl.png';
+    this.sprite = 'images/char-pink-girl2.png';
     this.x = 202;
     this.y = 404;
     this.x2 = 0;
@@ -77,6 +70,7 @@ var Player = function() {
     this.height = 60;
     this.score = 0;
     this.highScore = 0;
+    this.deathScore = 0;
 };
 
 Player.prototype.update = function() {
@@ -115,7 +109,6 @@ Player.prototype.handleInput = function(pressedKey) {
             }
             break;
     }
-    // player.render();
 };
 
 Player.prototype.restart = function() {
@@ -123,24 +116,22 @@ Player.prototype.restart = function() {
     this.y = 404;
 };
 
-Player.prototype.showScore = function () {
+Player.prototype.showScores = function () {
     document.getElementById('score').innerHTML = player.score;
-};
-
-Player.prototype.showHighScore = function () {
     if (player.score > player.highScore) {
       player.highScore = player.score;
     }
     document.getElementById('high-score').innerHTML = player.highScore;
+    document.getElementById('death-score').innerHTML = player.deathScore;
 };
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 var enemy1 = new Enemy(-50, 60, 35);
-var enemy2 = new Enemy(-50, 140, 40);
-var enemy3 = new Enemy(-50, 220, 60);
-var enemy4 = new Enemy(-50, 220, 30);
+var enemy2 = new Enemy(-50, 140, 45);
+var enemy3 = new Enemy(-50, 220, 58);
+var enemy4 = new Enemy(-50, 220, 25);
 var allEnemies = [enemy1, enemy2, enemy3, enemy4];
 var player = new Player();
 
