@@ -9,3 +9,9 @@ You will be provided with visual assets and a game loop engine; using these tool
 #### Supporting Courses:
 * Object-Oriented JavaScript
 * HTML5 Canvas
+
+## Running the game
+1. Download the source code to your computer
+2. `cd` to the folder of the game
+3. Run command `python -m SimpleHTTPServer`
+4. Open localhost `http://0.0.0.0:8000/` on your browser
