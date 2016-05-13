@@ -39,3 +39,7 @@ h2 {
 .rules-text {
   margin-top: 30px;
 }
+
+canvas {
+  margin-top: -20px;
+}

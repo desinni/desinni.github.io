@@ -40,7 +40,7 @@ Enemy.prototype.render = function() {
 };
 
 Enemy.prototype.randomRow = function () {
-    var rndRow = Math.floor((Math.random() * 3) + 1);
+    var rndRow = Math.floor((Math.random() * 4) + 1);
     var row;
     switch (rndRow) {
       case 1:
@@ -51,6 +51,9 @@ Enemy.prototype.randomRow = function () {
         break;
       case 3:
         row = 220;
+        break;
+      case 4:
+        row = 300;
         break;
     }
     return row;
@@ -63,7 +66,7 @@ Enemy.prototype.randomRow = function () {
 var Player = function() {
     this.sprite = 'images/char-pink-girl2.png';
     this.x = 202;
-    this.y = 404;
+    this.y = 489;
     this.x2 = 0;
     this.y2 = 0;
     this.width = 60;
@@ -94,7 +97,7 @@ Player.prototype.handleInput = function(pressedKey) {
             }
             break;
         case 'down':
-            if (this.y < 404) {
+            if (this.y < 489) {
                 this.y2 = 85;
             }
             break;
@@ -113,7 +116,7 @@ Player.prototype.handleInput = function(pressedKey) {
 
 Player.prototype.restart = function() {
     this.x = 202;
-    this.y = 404;
+    this.y = 489;
 };
 
 Player.prototype.showScores = function () {
@@ -131,8 +134,9 @@ Player.prototype.showScores = function () {
 var enemy1 = new Enemy(-50, 60, 35);
 var enemy2 = new Enemy(-50, 140, 45);
 var enemy3 = new Enemy(-50, 220, 58);
-var enemy4 = new Enemy(-50, 220, 25);
-var allEnemies = [enemy1, enemy2, enemy3, enemy4];
+var enemy4 = new Enemy(-50, 300, 25);
+var enemy5 = new Enemy(-50, 220, 40);
+var allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5];
 var player = new Player();
 
 // This listens for key presses and sends the keys to your
