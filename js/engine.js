@@ -97,6 +97,7 @@ var Engine = (function(global) {
         });
         player.update();
         player.showScores();
+        player.showLevel();
     }
 
     /* This function initially draws the "game level", it will then call

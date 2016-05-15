@@ -59,6 +59,17 @@ Enemy.prototype.randomRow = function() {
     return row;
 };
 
+var addEnemy = function() {
+    var randomSpeed = Math.floor((Math.random() * 20) + 20);
+    allEnemies.push(new Enemy(0, Enemy.prototype.randomRow(), randomSpeed));
+};
+
+var removeEnemy = function() {
+    if (allEnemies.length > 3){
+      allEnemies.pop();
+    }
+}
+
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -92,8 +103,8 @@ Player.prototype.handleInput = function(pressedKey) {
             if (this.y > 64) {
                 this.y2 = -85;
             } else {
-                player.restart();
-                player.score++;
+                this.restart();
+                this.score++;
             }
             break;
         case 'down':
@@ -120,12 +131,25 @@ Player.prototype.restart = function() {
 };
 
 Player.prototype.showScores = function() {
-    document.getElementById('score').innerHTML = player.score;
-    if (player.score > player.highScore) {
-        player.highScore = player.score;
+    document.getElementById('score').innerHTML = this.score;
+    if (this.score > this.highScore) {
+        this.highScore = this.score;
     }
-    document.getElementById('high-score').innerHTML = player.highScore;
-    document.getElementById('death-score').innerHTML = player.deathScore;
+    document.getElementById('high-score').innerHTML = this.highScore;
+    document.getElementById('death-score').innerHTML = this.deathScore;
+    document.getElementById('enemy-count').innerHTML = allEnemies.length;
+};
+
+Player.prototype.showLevel = function () {
+    var level;
+    if (allEnemies.length <= 3) {
+      level = 'easy';
+    } else if (allEnemies.length > 3 && allEnemies.length <= 5) {
+      level = 'medium';
+    } else {
+      level = 'hard';
+    }
+    document.getElementById('level').innerHTML = level;
 };
 
 // Now instantiate your objects.
@@ -135,8 +159,7 @@ var enemy1 = new Enemy(-50, 60, 35);
 var enemy2 = new Enemy(-50, 140, 45);
 var enemy3 = new Enemy(-50, 220, 58);
 var enemy4 = new Enemy(-50, 300, 25);
-var enemy5 = new Enemy(-50, 220, 40);
-var allEnemies = [enemy1, enemy2, enemy3, enemy4, enemy5];
+var allEnemies = [enemy1, enemy2, enemy3, enemy4];
 var player = new Player();
 
 // This listens for key presses and sends the keys to your
