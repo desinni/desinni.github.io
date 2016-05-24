@@ -1,3 +1,3 @@
 #Host Website on GitHub
 
-https://desinni.github.io/_page-name_ will run the page
+https://desinni.github.io/page-name add wanted _page-name_ and this will run the page
